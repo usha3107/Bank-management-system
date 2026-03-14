@@ -25,7 +25,7 @@ export class EventStore {
             'SELECT * FROM events WHERE aggregate_id = $1 AND event_number > $2 ORDER BY event_number ASC',
             [aggregateId, sinceEventNumber]
         );
-        return result.rows.map(row: any => this.mapRowToEvent(row));
+        return result.rows.map((row: any) => this.mapRowToEvent(row));
     }
 
     async getAllEvents(): Promise<BankAccountEvent[]> {
